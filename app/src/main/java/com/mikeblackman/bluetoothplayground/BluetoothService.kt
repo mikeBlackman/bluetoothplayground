@@ -14,6 +14,7 @@ import javax.inject.Inject
 interface BluetoothService {
     suspend fun connect(device: BluetoothDevice): Boolean
     suspend fun sendPacketForResponse(packet : ByteArray) : ByteArray
+    suspend fun writeNoResponse(packet : ByteArray)
     fun isConnected() : Boolean
     fun disconnect()
 }
@@ -76,6 +77,10 @@ class BluetoothServiceImpl @Inject constructor(
         outputStream?.write(packet)
         val resultBytes = supervisorScope { async { read(inputStream!!) } }
         return resultBytes.await().toTypedArray().toByteArray()
+    }
+
+    override suspend fun writeNoResponse(packet : ByteArray) {
+        outputStream?.write(packet)
     }
 
     override fun isConnected(): Boolean {
