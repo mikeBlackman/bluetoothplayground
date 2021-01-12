@@ -8,5 +8,5 @@
     android:layout_height="match_parent"
     android:scrollbars="vertical"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:context=".ui.main.MainFragment"
+    tools:context=".devicelist.DeviceListFragmnet"
     tools:listitem="@layout/device_cell" />

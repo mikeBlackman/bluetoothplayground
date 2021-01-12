@@ -6,7 +6,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import com.mikeblackman.bluetoothplayground.ui.main.BluetoothDeviceWrapper
+import com.mikeblackman.bluetoothplayground.devicelist.BluetoothDeviceWrapper
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose

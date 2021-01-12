@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.mikeblackman.bluetoothplayground.ui.main.MainFragment"
+        android:name="com.mikeblackman.bluetoothplayground.devicelist.DeviceListFragmnet"
         android:label="Scan for Devices"
-        tools:layout="@layout/main_fragment">
+        tools:layout="@layout/device_list_fragment">
         <action
             android:id="@+id/action_deviceListFragment_to_deviceFragment"
             app:destination="@id/deviceFragment" />

@@ -1,4 +1,4 @@
-package com.mikeblackman.bluetoothplayground.ui.main
+package com.mikeblackman.bluetoothplayground.devicelist
 
 import android.bluetooth.BluetoothDevice
 import android.os.Parcelable

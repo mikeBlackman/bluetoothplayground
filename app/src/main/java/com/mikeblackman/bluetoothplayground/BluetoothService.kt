@@ -24,9 +24,6 @@ class BluetoothServiceImpl @Inject constructor(
 
     companion object {
         val GUID_LAK: UUID = UUID.fromString("ABB03DDB-B693-4844-BC79-0E5A54058248")
-        val GUID_LINX: UUID = UUID.fromString("56E0B293-B704-41C9-A6D7-9712B6D4AE38")
-        val f0escaped: ByteArray = byteArrayOf(0xf1.toByte(), 0xf8.toByte())
-        val f1escaped: ByteArray = byteArrayOf(0xf1.toByte(), 0xf9.toByte())
     }
 
     private var job = Job()
@@ -34,7 +31,6 @@ class BluetoothServiceImpl @Inject constructor(
     private var device: BluetoothDevice? = null
     private var inputStream: InputStream? = null
     private var outputStream: OutputStream? = null
-    private var timer: Timer = Timer()
 
     /// Example of a single thread context for co-routine
     // val context = newSingleThreadContext("BluetoothContext")

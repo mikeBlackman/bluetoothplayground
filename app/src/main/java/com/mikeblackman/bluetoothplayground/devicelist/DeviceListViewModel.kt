@@ -1,4 +1,4 @@
-package com.mikeblackman.bluetoothplayground.ui.main
+package com.mikeblackman.bluetoothplayground.devicelist
 
 import android.content.pm.PackageManager
 import androidx.hilt.lifecycle.ViewModelInject
@@ -11,7 +11,7 @@ import com.mikeblackman.bluetoothplayground.permissions.CheckRequiredPermissions
 import com.mikeblackman.bluetoothplayground.permissions.RequestPermissions
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-class MainViewModel @ViewModelInject constructor(
+class DeviceListViewModel @ViewModelInject constructor(
     private val scanDevice: ScanDevice,
     private val checkRequiredPermissions: CheckRequiredPermissions,
     private val requestPermissions: RequestPermissions,

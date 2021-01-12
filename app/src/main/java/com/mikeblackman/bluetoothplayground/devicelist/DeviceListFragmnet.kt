@@ -1,4 +1,4 @@
-package com.mikeblackman.bluetoothplayground.ui.main
+package com.mikeblackman.bluetoothplayground.devicelist
 
 import android.bluetooth.BluetoothDevice
 import android.os.Bundle
@@ -10,24 +10,24 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.mikeblackman.bluetoothplayground.R
-import com.mikeblackman.bluetoothplayground.databinding.MainFragmentBinding
+import com.mikeblackman.bluetoothplayground.databinding.DeviceListFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainFragment : Fragment() {
+class DeviceListFragmnet : Fragment() {
 
-    private var _binding: MainFragmentBinding? = null
+    private var _binding: DeviceListFragmentBinding? = null
     private val binding get() = _binding!!
 
     private var adapter: DeviceListAdapter? = null
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: DeviceListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
+        _binding = DeviceListFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -36,7 +36,7 @@ class MainFragment : Fragment() {
 
         with(binding.deviceList) {
             adapter = DeviceListAdapter(::onItemClick)
-            this@MainFragment.adapter = adapter as DeviceListAdapter
+            this@DeviceListFragmnet.adapter = adapter as DeviceListAdapter
         }
 
         val dividerItemDecoration = DividerItemDecoration(
