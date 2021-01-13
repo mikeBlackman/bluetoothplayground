@@ -9,34 +9,6 @@ import java.io.OutputStream
 import java.util.*
 import javax.inject.Inject
 
-/**
- * Helper function for printing the contents of a byteArray to the command line
- * Useful for debugging
- */
-fun ByteArray.printByteArray(): String? {
-    val sb = StringBuilder()
-    sb.append("[ ")
-    for (b in this) {
-        sb.append(String.format("0x%02X ", b))
-    }
-    sb.append("]")
-    return sb.toString()
-}
-
-/**
- * Extension function that connects to a device asynchronously
- * and returns a connected socket.
- */
-private suspend fun BluetoothDevice.connectAsClientAsync(uuid: UUID) =
-    supervisorScope {
-        coroutineScope {
-            return@coroutineScope async(IO) {
-                val bluetoothSocket = createRfcommSocketToServiceRecord(uuid)
-                bluetoothSocket.also { it.connect() }
-            }
-        }
-    }
-
 interface BluetoothService {
     suspend fun connect(device: BluetoothDevice): Boolean
     suspend fun sendPacketForResponse(packet: ByteArray): ByteArray
