@@ -30,7 +30,7 @@ class BluetoothServiceImpl @Inject constructor(
     private var inputStream: InputStream? = null
     private var outputStream: OutputStream? = null
 
-    /// Example of a single thread context for co-routine
+    /// Example of a single thread context for coroutine
     // val context = newSingleThreadContext("BluetoothContext")
 
     override suspend fun connect(device: BluetoothDevice): Boolean {

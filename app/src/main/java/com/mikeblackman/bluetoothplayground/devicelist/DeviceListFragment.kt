@@ -14,7 +14,7 @@ import com.mikeblackman.bluetoothplayground.databinding.DeviceListFragmentBindin
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DeviceListFragmnet : Fragment() {
+class DeviceListFragment : Fragment() {
 
     private var _binding: DeviceListFragmentBinding? = null
     private val binding get() = _binding!!
@@ -36,7 +36,7 @@ class DeviceListFragmnet : Fragment() {
 
         with(binding.deviceList) {
             adapter = DeviceListAdapter(::onItemClick)
-            this@DeviceListFragmnet.adapter = adapter as DeviceListAdapter
+            this@DeviceListFragment.adapter = adapter as DeviceListAdapter
         }
 
         val dividerItemDecoration = DividerItemDecoration(

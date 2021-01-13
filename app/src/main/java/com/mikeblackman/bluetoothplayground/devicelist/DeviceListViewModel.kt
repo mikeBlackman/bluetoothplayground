@@ -17,7 +17,7 @@ class DeviceListViewModel @ViewModelInject constructor(
     private val requestPermissions: RequestPermissions,
 ) : ViewModel() {
 
-    val deviceList = ArrayList<BluetoothDeviceWrapper>()
+    private val deviceList = ArrayList<BluetoothDeviceWrapper>()
     val permissionRequestEvent = SingleLiveEvent<Array<String>>()
 
     @ExperimentalCoroutinesApi

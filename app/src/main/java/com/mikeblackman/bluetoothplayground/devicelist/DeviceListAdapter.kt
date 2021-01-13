@@ -13,13 +13,9 @@ class DeviceListAdapter(
 ) : RecyclerView.Adapter<DeviceListAdapter.ViewHolder>() {
 
     private val devices: MutableList<BluetoothDeviceWrapper> = mutableListOf()
-    private val onClickListener: View.OnClickListener
-
-    init {
-        onClickListener = View.OnClickListener { v ->
-            val item = v.tag as BluetoothDevice
-            onItemClick(item)
-        }
+    private val onClickListener: View.OnClickListener = View.OnClickListener { v ->
+        val item = v.tag as BluetoothDevice
+        onItemClick(item)
     }
 
     fun addDevice(device: BluetoothDeviceWrapper) {
@@ -55,7 +51,7 @@ class DeviceListAdapter(
 
     override fun getItemCount(): Int = devices.size
 
-    inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
+    class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
         val name: TextView = mView.findViewById(R.id.name)
         val macAddress: TextView = mView.findViewById(R.id.mac)
         val rssi: TextView = mView.findViewById(R.id.rssi)
