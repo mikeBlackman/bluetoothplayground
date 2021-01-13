@@ -21,7 +21,7 @@ class BluetoothServiceImpl @Inject constructor(
 ) : BluetoothService {
 
     companion object {
-        val GUID_LAK: UUID = UUID.fromString("ABB03DDB-B693-4844-BC79-0E5A54058248")
+        val SERIAL_PORT_PROFILE_UUID: UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
     }
 
     private var connectionJob = Job()
@@ -38,7 +38,7 @@ class BluetoothServiceImpl @Inject constructor(
         this.device = device
 
         val state = CoroutineScope(IO + connectionJob).async(SupervisorJob(connectionJob)) {
-            bluetoothSocket = device.connectAsClientAsync(GUID_LAK).await()
+            bluetoothSocket = device.connectAsClientAsync(SERIAL_PORT_PROFILE_UUID).await()
             inputStream = bluetoothSocket!!.inputStream
             outputStream = bluetoothSocket!!.outputStream
             bluetoothSocket?.isConnected ?: false
