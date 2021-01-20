@@ -34,6 +34,8 @@ class DeviceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.onCreate(device)
+
         binding.sendButton.setOnClickListener {
             if (!binding.textInput.text.toString().isEmpty()) {
                 viewModel.sendButtonClicked(device, binding.textInput.text.toString())
@@ -47,4 +49,10 @@ class DeviceFragment : Fragment() {
             binding.output.text = it
         }
     }
+
+    override fun onDestroy() {
+        viewModel.onDestroy()
+        super.onDestroy()
+    }
+
 }

@@ -18,11 +18,22 @@ class DeviceViewModel @ViewModelInject constructor(
 
     fun sendButtonClicked(device: BluetoothDevice, text: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val connectionResult = bluetoothService.connect(device)
-            response.postValue(connectionResult.toString())
+            bluetoothService.sendPacketNoResponse("hello".toByteArray())
+            response.postValue("Sent packet")
+        }
             //val packetResponse = bluetoothService.sendPacketForResponse(text.encodeToByteArray())
             //response.value = connectionResult.toString()
         }
+
+    fun onCreate(device: BluetoothDevice) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val connectionResult = bluetoothService.connect(device)
+        }
     }
 
+    fun onDestroy() {
+        bluetoothService.disconnect()
+    }
 }
+
+
