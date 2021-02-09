@@ -2,7 +2,7 @@ package com.mikeblackman.bluetoothplayground.devicelist
 
 import android.bluetooth.BluetoothDevice
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 import java.util.*
 
 @Parcelize

@@ -1,16 +1,17 @@
 package com.mikeblackman.bluetoothplayground.device
 
 import android.bluetooth.BluetoothDevice
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mikeblackman.bluetoothplayground.BluetoothService
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-
-class DeviceViewModel @ViewModelInject constructor(
+@HiltViewModel
+class DeviceViewModel @Inject constructor(
     private val bluetoothService: BluetoothService
 ) : ViewModel() {
 

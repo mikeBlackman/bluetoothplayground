@@ -29,12 +29,6 @@ class RequestPermissionsImpl @Inject constructor(@ApplicationContext private val
             isPermissionDenied(Manifest.permission.BLUETOOTH) -> {
                 arrayOf(Manifest.permission.BLUETOOTH)
             }
-            isPermissionDenied(Manifest.permission.READ_EXTERNAL_STORAGE)-> {
-                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-            }
-            isPermissionDenied(Manifest.permission.WRITE_EXTERNAL_STORAGE)-> {
-                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            }
             else -> arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
         }
     }

@@ -18,9 +18,7 @@ class CheckRequiredPermissionsImpl @Inject constructor(@ApplicationContext priva
         return isPermissionGranted(Manifest.permission.ACCESS_COARSE_LOCATION) &&
                 isPermissionGranted(Manifest.permission.BLUETOOTH_ADMIN) &&
                 isPermissionGranted(Manifest.permission.BLUETOOTH) &&
-                isPermissionGranted(Manifest.permission.ACCESS_FINE_LOCATION) &&
-                isPermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE) &&
-                isPermissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                isPermissionGranted(Manifest.permission.ACCESS_FINE_LOCATION)
     }
 
     private fun isPermissionGranted(permission: String): Boolean {
