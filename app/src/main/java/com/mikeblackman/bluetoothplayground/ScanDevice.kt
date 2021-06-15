@@ -48,10 +48,12 @@ class ScanDeviceImpl @Inject constructor(@ApplicationContext private val context
                 override fun onReceive(context: Context?, intent: Intent?) {
                     if (BluetoothDevice.ACTION_FOUND == intent?.action) {
                         val device =
-                            intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE) as BluetoothDevice
+                            intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE) as BluetoothDevice?
                         val rssi =
                             intent.getShortExtra(BluetoothDevice.EXTRA_RSSI, MIN_VALUE).toInt()
-                        offer(BluetoothDeviceWrapper(device, rssi))
+                        if (device != null) {
+                            offer(BluetoothDeviceWrapper(device, rssi))
+                        }
                     }
                 }
             }
